@@ -1,5 +1,7 @@
 package com.zjd.jimao.MQ;
+
 import java.util.HashMap;
+
 import static java.lang.Integer.*;
 
 public class HoneMQ {
@@ -18,24 +20,24 @@ public class HoneMQ {
     }
 
     //满减政策，用fullred判断是否有满减
-    public static int getfullReduction(String fruit,String fullRed){
+    public static int getfullReduction(String fruit, String fullRed) {
         //未满减之前
         int money = getFruit(fruit);
-        if (fullRed == null || fullRed.equals("") ){
+        if (fullRed == null || fullRed.equals("")) {
             return money;
         }
         String[] split = fullRed.split(":");
         int a = parseInt(split[0]);
         int b = parseInt(split[1]);
-        money-=(money/a)*b;
+        money -= (money / a) * b;
         return money;
     }
 
 
     //组装水果集合
-    public static int getFruit(String fruit){
+    public static int getFruit(String fruit) {
         HashMap<Integer, String> price = new HashMap<>();
-        if (fruit == null){
+        if (fruit == null) {
             return 0;
         }
         String[] split = fruit.split(",");
@@ -52,20 +54,20 @@ public class HoneMQ {
 
 
     //获取钱
-    public static int getMoney(HashMap<Integer,String> map){
-        int valus= 0;
+    public static int getMoney(HashMap<Integer, String> map) {
+        int valus = 0;
         for (int i : map.keySet()) {
             String s = map.get(i);
             String[] split = s.split(":");
             Fruit fruitById = Fruit.getFruitById(i);
             Float value = fruitById.getValue();
-            if (Integer.parseInt(split[1])>1){
-                valus+=value*Float.parseFloat(split[0])*(Float.parseFloat(split[1])/10.0);
-            }else {
-                valus+=value*Float.parseFloat(split[0]);
+            if (Integer.parseInt(split[1]) > 1) {
+                valus += value * Float.parseFloat(split[0]) * (Float.parseFloat(split[1]) / 10.0);
+            } else {
+                valus += value * Float.parseFloat(split[0]);
             }
         }
-            return valus;
+        return valus;
     }
 
 

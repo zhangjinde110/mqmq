@@ -76,8 +76,8 @@ public enum Fruit {
             return null;
         }
         Fruit types[] = Fruit.values();
-        for(Fruit type : types) {
-            if(type.getId() == id) {
+        for (Fruit type : types) {
+            if (type.getId() == id) {
                 return type;
             }
         }
@@ -85,6 +85,5 @@ public enum Fruit {
         return null;
 
 
-
-}
+    }
 }

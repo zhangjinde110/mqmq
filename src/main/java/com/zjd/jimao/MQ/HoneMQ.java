@@ -12,7 +12,7 @@ public class HoneMQ {
         //设 key 为水果类型  y为水果打折力度
         //key 为类型id  value 为 数量：折扣
         String fruit = "1:5:1,2:9:9,3:10:1";
-        String fullRed = "";
+        String fullRed = "300:10";
 //        int fruit1 = getFruit(fruit);
         int fruit1 = getfullReduction(fruit, fullRed);
         System.out.println(fruit1);
